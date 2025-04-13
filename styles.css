@@ -162,3 +162,33 @@ a {
 .footer strong {
         font-weight: bold;
 }
+
+/* Añadidos Juan */
+
+.titulo-salones{
+    padding: 10px;
+    text-align: left;
+    color: black;
+    background-color: #cecce2;
+}
+
+.enlistado{
+    color: white;
+    background-color: #ffffff;
+    display: grid;
+    list-style: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.lista-parte{
+    background-color:#007ca1;
+    list-style: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.espacio-imagen{
+    margin-bottom: 0.5em
+}
