@@ -15,14 +15,17 @@ nav {
     color: #e5eef2;
 }
 
+.nombre-pagina-header {
+    margin-left: 20px;
+}
+
 .nombre-pagina-header:hover{
     cursor: default;
 }
 
-
 .menu-opciones {
     display: flex;
-    padding: 0px 90px;
+    padding: 0px 20px;
 }
 
 .menu-drop {
