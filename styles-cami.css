@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #005582;
+    color: #e5eef2;
+}
+
+.nombre-pagina-header:hover{
+    cursor: default;
+}
+
+
+.menu-opciones {
+    display: flex;
+    padding: 0px 90px;
+}
+
+.menu-drop {
+    padding: 10px;
+    border: none;
+    background-color: #005582;
+    color: #e5eef2;
+    font-size: large;
+}
+
+.menu-drop:hover {
+    background-color: #0086ad;
+    cursor: pointer;
+    color: #e5eef2;
+}
+
+.inicio-boton {
+    justify-content: left;
+}
+
+a {
+    text-decoration: none;
+    color: #f2f2f2;
+}
+
+.menu-oculto-header {
+    position: relative;
+    display: inline-block;
+}
+
+.contenido-menu-oculto-header {
+    display: none;
+    position: absolute;
+    min-width: 150px;
+    background-color: #005582;
+    padding: 10px;
+    height: fit-content;
+}
+
+.menu-oculto-header:hover .contenido-menu-oculto-header{
+    display: block;
+    cursor: pointer;
+}
+
+.opcion:hover {
+    background-color: #0086ad;
+}
+
+.paginas-containter {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.opciones-botones {
+    width: 200px;
+    height: 90px;
+    border: none;
+    background-color: #005582;
+}
+
+.titulo-imagen-construccion {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.imagen-construccion {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
