@@ -5,6 +5,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
+    user-select: none;
 }
 
 nav {
@@ -74,16 +75,45 @@ a {
     background-color: #0086ad;
 }
 
-.paginas-containter {
+.imagen-portada{
+    display: block;
+}
+
+.paginas-container {
     display: flex;
-    justify-content: space-evenly;
 }
 
 .opciones-botones {
-    width: 200px;
+    width: calc(100% / 3);
     height: 90px;
     border: none;
     background-color: #005582;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.boton1 {
+    background-color: #72bdde;
+}
+
+.boton2 {
+    background-color: #da9bb9;
+}
+
+.boton3 {
+    background-color: #b08bc8;
+}
+
+.boton1:hover{
+    background-color: #7fd3f7;
+}
+
+.boton2:hover{
+    background-color: #f7adce;
+}
+
+.boton3:hover{
+    background-color: #c49bdf;
 }
 
 .titulo-imagen-construccion {
@@ -98,3 +128,4 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
+
