@@ -213,3 +213,37 @@ body {
 .espacio-imagen{
     margin-bottom: 0.5em
 }
+
+/*Añadidos Jesi*/
+
+.titulo-contacto{
+    padding: 10px;
+    text-align: left;
+    color: black;
+    background-color: #e9ebf4;
+    a{
+        color: #005582;
+    }   
+}
+
+.siguenos-contacto{
+    padding: 10px;
+    text-align: left;
+    color: black;
+    background-color: #e9ebf4;
+    border-bottom: 1px solid #005582;
+    
+}
+
+.footer-contacto{
+    padding: 10px;
+    text-align: left;
+    color: black;
+    background-color: #e9ebf4
+}
+
+
+
+
+
+
