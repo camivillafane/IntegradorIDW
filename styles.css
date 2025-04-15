@@ -261,5 +261,11 @@ body {
     
 }
 
+.footer-derechos-reservados, .footer-grupo-desarrollo {
+    display: flex;
+    justify-content: center;
+}
 
-
+.footer-grupo-desarrollo {
+    color: #A0A0A0;
+}
