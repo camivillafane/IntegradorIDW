@@ -9,11 +9,18 @@
 }
 
 nav {
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #005582;
     color: #e5eef2;
+    height: 50px;
+}
+
+.fondo-header {
+    height: 50px;
 }
 
 .nombre-pagina-header {
@@ -85,7 +92,7 @@ a {
 
 .opciones-botones {
     width: calc(100% / 3);
-    height: 90px;
+    height: 80px;
     border: none;
     background-color: #005582;
     font-weight: 500;
@@ -128,4 +135,131 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
+
+body {
+    background-color: #005582; 
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-pagina {
+    background-color: #005582;
+    color: #f2f2f2;
+    padding: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+.footer-pagina a {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+.footer-pagina h3 {
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+.footer-pagina p {
+    margin: 10px 0;
+}
+
+.footer-pagina img {
+    width: 15px; 
+    vertical-align: middle;
+    margin-right: 8px; 
+    filter: brightness(0) invert(1);
+}
+
+
+.footer-pagina strong {
+    font-weight: bold;
+}
+
+.footer strong {
+        font-weight: bold;
+}
+
+/* Añadidos Juan */
+
+.titulo-salones{
+    padding: 10px;
+    text-align: left;
+    color: black;
+    background-color: #cecce2;
+}
+
+.enlistado{
+    color: white;
+    background-color:#005582;
+    display: grid;
+    list-style: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.lista-parte{
+    background-color:#007ca1;
+    list-style: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.espacio-imagen{
+    margin-bottom: 0.5em
+}
+
+/*Añadidos Jesi*/
+
+.titulo-contacto{
+    padding: 10px;
+    text-align: left;
+    color: rgb(239, 237, 232);
+    background-color: #65a8C5;
+    border-radius: 10px;
+    margin: 15px;
+    ul{list-style: none};
+    a{
+        color: #bad5db;
+    }
+}
+
+.siguenos-contacto{
+    padding: 10px;
+    text-align: left;
+    color: rgb(239, 237, 232);
+    background-color: #65a8C5;
+    border-radius: 10px;
+    margin: 15px;
+    
+}
+
+/*AÑADIDOS AYE*/
+.titulo-institucional{
+    background-color:#D5B9E8;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    border-radius: 5px;
+    margin: 15px;
+    
+}
+
+.texto-principal{
+    color: #EEEEEE;
+    background-color: #65a8C5;
+    text-align: left;
+    padding: 10px;
+    word-spacing: 8px;
+    margin: 15px;
+    border-radius: 5px;
+    
+}
+
+
 
