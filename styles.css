@@ -242,8 +242,27 @@ body {
     background-color: #e9ebf4
 }
 
+/*AÑADIDOS AYE*/
+.titulo-institucional{
+    background-color:#D5B9E8;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    border-radius: 5px;
+    margin: 15px;
+    
+}
 
-
+.texto-principal{
+    color: #EEEEEE;
+    background-color: #65a8C5;
+    text-align: left;
+    padding: 10px;
+    word-spacing: 8px;
+    margin: 15px;
+    border-radius: 5px;
+    
+}
 
 
 
