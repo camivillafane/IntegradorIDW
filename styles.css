@@ -219,27 +219,24 @@ body {
 .titulo-contacto{
     padding: 10px;
     text-align: left;
-    color: black;
-    background-color: #e9ebf4;
+    color: rgb(239, 237, 232);
+    background-color: #65a8C5;
+    border-radius: 10px;
+    margin: 15px;
+    ul{list-style: none};
     a{
-        color: #005582;
-    }   
+        color: #bad5db;
+    }
 }
 
 .siguenos-contacto{
     padding: 10px;
     text-align: left;
-    color: black;
-    background-color: #e9ebf4;
-    border-bottom: 1px solid #005582;
+    color: rgb(239, 237, 232);
+    background-color: #65a8C5;
+    border-radius: 10px;
+    margin: 15px;
     
-}
-
-.footer-contacto{
-    padding: 10px;
-    text-align: left;
-    color: black;
-    background-color: #e9ebf4
 }
 
 /*AÑADIDOS AYE*/
