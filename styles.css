@@ -93,6 +93,9 @@ a {
 .opciones-botones {
     width: calc(100% / 3);
     height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     background-color: #005582;
     font-weight: 500;
