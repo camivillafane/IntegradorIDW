@@ -132,3 +132,9 @@ background-color: #c49bdf
 .bg-lilaindex:hover{
 background-color: #c49bdf
 }
+
+/* Fijarse si no choca con otros hipervinculos */
+a{
+    color:#e5eef2;
+    text-decoration: none;
+}
