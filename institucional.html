@@ -12,68 +12,99 @@
     <title>Institucional</title>
 </head>
 
-<body>
-    <header>
-        <nav>
-            <div class="nombre-pagina-header">
-                <a href="index.html"><h1>Mundo Mágico</h1></a>
+<body class="bg-azul-600">
+
+<header class="mb-5">
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid bg-azul-600 altura-50 fixed-top">
+            <a class="navbar-brand" href="index.html">Mundo Mágico</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item text-start">
+                        <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
+                    </li>
+    
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            Info
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item active" href="contacto.html">Contacto</a></li>
+                            <li><a class="dropdown-item" href="institucional.html">Institucional</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            Menú
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                            <li><a class="dropdown-item active" href="salones.html">Salones de Evento</a></li>
+                            <li><a class="dropdown-item" href="servicios.html">Servicio</a></li>
+                            <li><a class="dropdown-item" href="presupuestos-cami.html">Presupuesto</a></li>
+                            <li><a class="dropdown-item" href="imagenes.html">Imágenes</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown dropdown-final">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            Cuenta
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="dropdownMenuButton3">
+                            <li><a class="dropdown-item active" href="iniciarsesion.html">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>
+                        </ul>
+                    </div>
+                </ul>
             </div>
-            <div class="menu-header">
-                <div class="menu-opciones">
-                    <button class="menu-drop">
-                        <a class="inicio-boton" href="index.html">Inicio</a>
-                    </button>
-
-                    <div class="menu-oculto-header">
-                        <button class="menu-drop">Info</button>
-                        <div class="contenido-menu-oculto-header">
-                            <a class="opcion" href="contacto.html">Contacto</a>
-                            <a class="opcion" href="institucional.html">Institucional</a>
-                        </div>
-                    </div>
-
-                    <div class="menu-oculto-header">
-                        <button class="menu-drop">Menu</button>
-                        <div class="contenido-menu-oculto-header">
-                            <a class="opcion" href="salones.html">Salones de Eventos</a>
-                            <a class="opcion" href="servicios.html">Servicios</a>
-                            <a class="opcion" href="presupuestos-cami.html">Presupuesto</a>
-                            <a class="opcion" href="imagenes.html">Imagenes</a>
-                        </div>
-                    </div>
-
-                    <div class="menu-oculto-header">
-                        <button class="menu-drop">Cuenta</button>
-                        <div class="contenido-menu-oculto-header">
-                            <a class="opcion" href="iniciarsesion.html">Iniciar Sesion</a>
-                            <a class="opcion" href="registrarse.html">Registrarse</a>
-                        </div>    
-                    </div>
-
-                </div>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <div class="fondo-header"></div>
 
-    <main>
-        <div class="titulo-institucional">
-            <section> <br>
-            <h2><img src="imagenes/papel-picado.png" width="40px">¡DONDE TUS SUEÑOS, SE HACEN REALIDAD!<img src="imagenes/papel-picado.png" width="40px"></h2> <br>
-            </section> 
-            
+    <div class="container-fluid mt-5 mb-0">
+            <div class="bg-indigo-100 text-center text-dark rounded-2 py-4 shadow-sm">
+                <h2 class="fw-bold">
+                <img src="imagenes/papel-picado.png" width="40" alt="decoración"> 
+                ¡DONDE TUS SUEÑOS, SE HACEN REALIDAD! 
+                <img src="imagenes/papel-picado.png" width="40" alt="decoración">
+                </h2>
+            </div>
         </div>
 
-        <div class="texto-principal">
-            <h3>Encontrá el salón ideal para tu próximo evento infantil en la ciudad <img src="imagenes/partido.png" width=30px"</h3> 
-            <br>
-            <p><img src="imagenes/torta-de-cumpleanos.png" width="30px"> En nuestra pagína web te ayudamos a ahorrar tiempo y esfuerzo buscando el lugar perfecto. <br> Contamos con un amplio catálogo de salones especialmente pensados para fiestas infantiles, equipados con todo lo que necesitás: juegos, climatización, catering, animación, Make Up artístico, Glitter Bar y mucho más. </p><br>
-                <p>Ya sea para un cumpleaños, bautismo, comunión, babyshower o cualquier celebración, te brindamos toda la información que necesitás en un solo lugar. Fotos, precios, disponibilidad y opiniones de otros clientes para que tomes la mejor decisión. <br>
-                Y lo más importante: fácil, rápido y confiable. <img src="imagenes/globo-de-corazon.png" width="30px"></p> <br> 
-                <p> <img src="imagenes/perro-globo.png" width="30px">Porque sabemos que querés que ese día sea inolvidable, nosotros nos encargamos de que empiece bien desde la planificación.</p>
-        </div>
-    </main>
+        <div class="container-fluid me-5">
+            <div class="container-fluid bg-celeste text-dark rounded-2 my-3">
+                <div class="mb-0 py-4">
+                    <h3 class="fw-semibold">
+                    Encontrá el salón ideal para tu próximo evento infantil en la ciudad 
+                    <img src="imagenes/partido.png" width="30" alt="fiesta">
+                    </h3>
+                </div>
+
+                <p class="mb-4">
+                    <img src="imagenes/torta-de-cumpleanos.png" width="30" alt="torta de cumpleaños" class="me-2">
+                    En nuestra página web te ayudamos a ahorrar tiempo y esfuerzo buscando el lugar perfecto.
+                    <br>
+                    Contamos con un amplio catálogo de salones especialmente pensados para fiestas infantiles, equipados con todo lo que necesitás: juegos, climatización, catering, animación, Make Up artístico, Glitter Bar y mucho más.
+                </p>
+
+                <p class="mb-4">
+                    Ya sea para un cumpleaños, bautismo, comunión, babyshower o cualquier celebración, te brindamos toda la información que necesitás en un solo lugar.
+                    Fotos, precios, disponibilidad y opiniones de otros clientes para que tomes la mejor decisión.
+                    <br>
+                    Y lo más importante: fácil, rápido y confiable.
+                    <img src="imagenes/globo-de-corazon.png" width="30" alt="globo corazón" class="ms-2">
+                </p>
+
+                <p class="mb-4">
+                    <img src="imagenes/perro-globo.png" width="30" alt="perro globo" class="me-2">
+                    Porque sabemos que querés que ese día sea inolvidable, nosotros nos encargamos de que empiece bien desde la planificación.
+                </p>
+            </div>
 
 
     <footer class="bg-azul-600 text-light py-4">

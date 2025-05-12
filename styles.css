@@ -16,9 +16,7 @@
     height: 50px;
 }
 
-.bg-celeste {
-    background-color: #65a8C5
-}
+
 
 .bg-azul-600 {
     background-color: #005582; 
@@ -137,4 +135,14 @@ background-color: #c49bdf
 a{
     color:#e5eef2;
     text-decoration: none;
+}
+
+/*AÑADIDOS AYE*/
+
+.bg-indigo-100{
+    background-color:#D5B9E8 !important;
+}
+
+.bg-celeste{
+    background-color: #65a8C5;
 }
