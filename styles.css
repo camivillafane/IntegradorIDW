@@ -8,267 +8,142 @@
     user-select: none;
 }
 
-nav {
-    position: fixed;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #005582;
-    color: #e5eef2;
+.textoblanco{
+    color: #e5eef2
+}
+
+.altura-50 {
     height: 50px;
 }
 
-.fondo-header {
-    height: 50px;
-}
 
-.nombre-pagina-header {
-    margin-left: 20px;
-}
 
-.nombre-pagina-header:hover{
-    cursor: default;
-}
-
-.menu-opciones {
-    display: flex;
-    padding: 0px 20px;
-}
-
-.menu-drop {
-    padding: 10px;
-    border: none;
-    background-color: #005582;
-    color: #e5eef2;
-    font-size: large;
-}
-
-.menu-drop:hover {
-    background-color: #0086ad;
-    cursor: pointer;
-    color: #e5eef2;
-}
-
-.inicio-boton {
-    justify-content: left;
-}
-
-a {
-    text-decoration: none;
-    color: #f2f2f2;
-}
-
-.menu-oculto-header {
-    position: relative;
-    display: inline-block;
-}
-
-.contenido-menu-oculto-header {
-    display: none;
-    position: absolute;
-    min-width: 150px;
-    background-color: #005582;
-    padding: 10px;
-    height: fit-content;
-}
-
-.menu-oculto-header:hover .contenido-menu-oculto-header{
-    display: block;
-    cursor: pointer;
-}
-
-.opcion:hover {
-    background-color: #0086ad;
-}
-
-.imagen-portada{
-    display: block;
-}
-
-.paginas-container {
-    display: flex;
-}
-
-.opciones-botones {
-    width: calc(100% / 3);
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: #005582;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.boton1 {
-    background-color: #72bdde;
-}
-
-.boton2 {
-    background-color: #da9bb9;
-}
-
-.boton3 {
-    background-color: #b08bc8;
-}
-
-.boton1:hover{
-    background-color: #7fd3f7;
-}
-
-.boton2:hover{
-    background-color: #f7adce;
-}
-
-.boton3:hover{
-    background-color: #c49bdf;
-}
-
-.titulo-imagen-construccion {
-    display: flex;
-    justify-content: center;
-    font-size: 20px;
-    margin-top: 5px;
-}
-
-.imagen-construccion {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-body {
+.bg-azul-600 {
     background-color: #005582; 
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
+} 
+
+
+.navbar-brand{
+    color: #e5eef2 !important;
+}
+.dropdown-toggle {
+    background: none;
+    border: none;
     padding: 0;
+    cursor: pointer;
 }
 
-.footer-pagina {
-    background-color: #005582;
-    color: #f2f2f2;
-    padding: 15px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
+.dropdown-menu {
+    display: none;
 }
 
-.footer-pagina a {
-    color: #f2f2f2;
-    text-decoration: none;
+.dropdown:hover > .dropdown-menu {
+    display: block;
 }
 
-.footer-pagina h3 {
-    font-weight: bold;
-    font-size: 14px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-    margin-top: 0;
+.dropdown-menu-dark {
+    background-color: #005582; ; 
 }
 
-.footer-pagina p {
-    margin: 10px 0;
+.dropdown-toggle::after {
+    content: none !important;
+    display: none !important;
 }
 
-.footer-pagina img {
-    width: 15px; 
-    vertical-align: middle;
-    margin-right: 8px; 
-    filter: brightness(0) invert(1);
+.dropdown-final .dropdown-menu{
+    left: 0;
+    right: auto;
+    transform: translateX(-25%);
 }
 
-
-.footer-pagina strong {
-    font-weight: bold;
+.navbar .btn {
+    background-color: transparent !important;
+    border: none;
+    color: #e5eef2 !important;
+    padding: 8px 15px;
+    transition: all 0.3s ease-in-out;
 }
 
-.footer strong {
-        font-weight: bold;
+.navbar .btn:hover {
+    color: #555;
+}
+
+.navbar-collapse {
+    background-color: #005582 !important;
+}
+
+@media (max-width: 576px) {
+    .dropdown-final .dropdown-menu {
+        transform: translateX(0); 
+        left: auto;
+        right: 0; 
+    }
+}
+
+.nav-link {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    font-weight: normal !important;
+
 }
 
 /* Añadidos Juan */
 
-.titulo-salones{
-    padding: 10px;
-    text-align: left;
-    color: black;
-    background-color: #cecce2;
+.bg-celesteindex {
+    background-color: #72bdde;
 }
 
-.enlistado{
-    color: white;
-    background-color:#005582;
-    display: grid;
-    list-style: none;
-    margin-left: 10px;
-    margin-right: 10px;
+.bg-rosaindex {
+    background-color: #da9bb9;
 }
 
-.lista-parte{
-    background-color:#007ca1;
-    list-style: none;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
+.bg-lilaindex{
+    background-color: #b08bc8;
 }
 
-.espacio-imagen{
-    margin-bottom: 0.5em
+.bg-celesteindex:hover {
+    background-color: #7fd3f7;
 }
 
-/*Añadidos Jesi*/
-
-.titulo-contacto{
-    padding: 10px;
-    text-align: left;
-    color: rgb(239, 237, 232);
-    background-color: #65a8C5;
-    border-radius: 10px;
-    margin: 15px;
-    ul{list-style: none};
-    a{
-        color: #bad5db;
-    }
+.bg-rosaindex:hover {
+    background-color: #f7adce;
 }
 
-.siguenos-contacto{
-    padding: 10px;
-    text-align: left;
-    color: rgb(239, 237, 232);
-    background-color: #65a8C5;
-    border-radius: 10px;
-    margin: 15px;
-    
+.bg-lilaindex:hover{
+background-color: #c49bdf
+}
+
+.bg-celesteindex, .bg-rosaindex, .bg-lilaindex {
+    font-size: 20px;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.bg-celesteindex:hover {
+    background-color: #7fd3f7;
+}
+
+.bg-rosaindex:hover {
+    background-color: #f7adce;
+}
+
+.bg-lilaindex:hover{
+background-color: #c49bdf
+}
+
+/* Fijarse si no choca con otros hipervinculos */
+a{
+    color:#e5eef2;
+    text-decoration: none;
 }
 
 /*AÑADIDOS AYE*/
-.titulo-institucional{
-    background-color:#D5B9E8;
-    padding: 10px;
-    text-align: center;
-    color: black;
-    border-radius: 5px;
-    margin: 15px;
-    
+
+.bg-indigo-100{
+    background-color:#D5B9E8 !important;
 }
 
-.texto-principal{
-    color: #EEEEEE;
+.bg-celeste{
     background-color: #65a8C5;
-    text-align: left;
-    padding: 10px;
-    word-spacing: 8px;
-    margin: 15px;
-    border-radius: 5px;
-    
-}
-
-.footer-derechos-reservados, .footer-grupo-desarrollo {
-    display: flex;
-    justify-content: center;
-}
-
-.footer-grupo-desarrollo {
-    color: #A0A0A0;
 }
