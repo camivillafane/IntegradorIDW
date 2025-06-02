@@ -21,28 +21,34 @@ const salonesFijos = [ //constante de los salones fijos del catalogo de salones.
         descripcionSalon: 'El salón Safari Salvaje es un lugar que ofrece muchas actividades divertidas apegadas a la temática. Un espacio lleno de colores vibrantes, peloteros y muchos juegos para todas las edades. Ideal para cumpleaños y celebraciones especiales.'
     }
 ];
+let indexEnEdicion = null;
 
+function generarIDcorto() {
+    return Math.random().toString(36).substring(2, 7);
+}
 function mostrarSalones() { //muestra salones
     const tablaBody = document.querySelector('#tablaSalones tbody');
     if (!tablaBody) return;
     tablaBody.innerHTML = '';
 
 
-    salonesFijos.forEach((salon) => { // constante de salones fijos de catalogo
+    salonesFijos.forEach((salon) => {
         const fila = document.createElement('tr');
         fila.innerHTML = `
+            <td><small>${salon.id || '-'}</small></td>
             <td>${salon.nombreSalon}</td>
             <td>${salon.direccionSalon}</td>
             <td>${salon.descripcionSalon}</td>
-            <td></td> <!-- Sin acciones para los fijos -->
+            <td></td>
         `;
         tablaBody.appendChild(fila);
     });
 
-    const salones = JSON.parse(localStorage.getItem('salones')) || []; //salones de altasalon que se pueden editar,etc
+    const salones = JSON.parse(localStorage.getItem('salones')) || [];
     salones.forEach((salon, index) => {
         const fila = document.createElement('tr');
         fila.innerHTML = `
+            <td><small>${salon.id || '-'}</small></td>
             <td>${salon.nombreSalon}</td>
             <td>${salon.direccionSalon}</td>
             <td>${salon.descripcionSalon}</td>
@@ -77,11 +83,25 @@ document.addEventListener('DOMContentLoaded',() =>{
             const nombreSalon= document.getElementById('nombreSalon').value;
             const direccionSalon = document.getElementById('direccionSalon').value;
             const descripcionSalon = document.getElementById('descripcionSalon').value;
-            const salon = {nombreSalon, direccionSalon, descripcionSalon};
             const salones = JSON.parse(localStorage.getItem('salones')) || [];
+            if (indexEnEdicion !== null) {
+                // Editar salón existente
+                salones[indexEnEdicion].nombreSalon = nombreSalon;
+                salones[indexEnEdicion].direccionSalon = direccionSalon;
+                salones[indexEnEdicion].descripcionSalon = descripcionSalon;
+                indexEnEdicion = null;
+            } else {
+                //nuevo salón
+                const salon = {
+                    id: generarIDcorto(),
+                    nombreSalon,
+                    direccionSalon,
+                    descripcionSalon
+                };
             salones.push(salon);
-            localStorage.setItem('salones',JSON.stringify(salones))
-            alert(`El nuevo salón tiene los siguientes atributos nombre:${nombreSalon}-direccion:${direccionSalon}-descripcion:${descripcionSalon}`);
+                alert(`Nuevo salón:\nNombre: ${nombreSalon}\nDirección: ${direccionSalon}\nDescripción: ${descripcionSalon}`);
+            }
+            localStorage.setItem('salones', JSON.stringify(salones));
             this.reset();
             mostrarSalones();
         });
