@@ -58,7 +58,7 @@ function mostrarSalones() { //muestra salones
 document.addEventListener('DOMContentLoaded',() =>{
     if (!sessionStorage.getItem('usuario')){
         alert('Debes iniciar sesion')
-        window.location.href = 'iniciarsesion.html'
+        window.location.href = 'iniciarsesion.html';
         return;
     }
 
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded',() =>{
     if (salir){
         salir.addEventListener('click',() => {
             sessionStorage.clear();
-            window.location.href = 'iniciarsesion.html'
+            window.location.href = 'salones.html';
         });
     }
 
