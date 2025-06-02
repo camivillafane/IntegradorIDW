@@ -9,7 +9,6 @@
     <title>Salones</title>
 </head>
 
-
 <body class="bg-celeste">
 
 <header class="mb-5">
@@ -61,7 +60,6 @@
         </div>
     </nav>
 </header>
-
 
     <section id="titulo-salones" class="bg-primary-subtle p-2">
         <h2 class="fw-bold text-center mt-2">Bienvenido a nuestro catálogo</h2>
@@ -160,7 +158,6 @@
             const salones = JSON.parse(localStorage.getItem('salones')) || [];
             const contenedorSalones = document.getElementById('catalogoSalones');
 
-        
             salones.forEach(salon => {
                 const col = document.createElement('div');
                 col.className = 'col-md-3 col-sm-6';
