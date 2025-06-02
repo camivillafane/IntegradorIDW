@@ -39,6 +39,7 @@ function mostrarSalones() { //muestra salones
             <td>${salon.nombreSalon}</td>
             <td>${salon.direccionSalon}</td>
             <td>${salon.descripcionSalon}</td>
+            <td>${salon.imagenSalon}</td>
             <td></td>
         `;
         tablaBody.appendChild(fila);
@@ -52,6 +53,7 @@ function mostrarSalones() { //muestra salones
             <td>${salon.nombreSalon}</td>
             <td>${salon.direccionSalon}</td>
             <td>${salon.descripcionSalon}</td>
+            <td>${salon.imagenSalon}</td>
             <td>
                 <button class="btn btn-sm btn-warning me-2" onclick="editarSalon(${index})">Editar</button>
                 <button class="btn btn-sm btn-danger" onclick="eliminarSalon(${index})">Eliminar</button>
@@ -83,12 +85,14 @@ document.addEventListener('DOMContentLoaded',() =>{
             const nombreSalon= document.getElementById('nombreSalon').value;
             const direccionSalon = document.getElementById('direccionSalon').value;
             const descripcionSalon = document.getElementById('descripcionSalon').value;
+            const imagenSalon = document.getElementById('imagenSalon');
             const salones = JSON.parse(localStorage.getItem('salones')) || [];
             if (indexEnEdicion !== null) {
                 // Editar salón existente
                 salones[indexEnEdicion].nombreSalon = nombreSalon;
                 salones[indexEnEdicion].direccionSalon = direccionSalon;
                 salones[indexEnEdicion].descripcionSalon = descripcionSalon;
+                salones[indexEnEdicion].imagenSalon = imagenSalon;
                 indexEnEdicion = null;
             } else {
                 //nuevo salón
@@ -96,7 +100,8 @@ document.addEventListener('DOMContentLoaded',() =>{
                     id: generarIDcorto(),
                     nombreSalon,
                     direccionSalon,
-                    descripcionSalon
+                    descripcionSalon,
+                    imagenSalon
                 };
             salones.push(salon);
                 alert(`Nuevo salón:\nNombre: ${nombreSalon}\nDirección: ${direccionSalon}\nDescripción: ${descripcionSalon}`);
