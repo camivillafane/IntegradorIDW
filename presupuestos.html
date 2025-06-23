@@ -60,11 +60,108 @@
     </nav>
 </header>
 
-<div class="container-fluid text-center">
-    <div class="titulo-imagen-construccion">
-        <h1>Página en construcción</h1>
+<div class="container mt-5 pt-5">
+    <h1 class="text-center mb-3 text-white">Presupuestos</h1>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-7">
+            <table class="table table-bordered align-middle" id="tablaPresupuesto">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Servicios</th>
+                        <th>Precio</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="salonNombre">Salón seleccionado</td>
+                        <td id="precioSalonPresupuesto">$0</td>
+                        <td>
+                            <select class="form-select" id="salonSelect" aria-label="Seleccionar salón">
+                                <option value="0">Elegir una opción</option>
+                                <option value="1">Salón 1 - $10000</option> <!-- voy a intentar agregarlo desde otro lao -->
+                                <option value="2">Salón 2 - $15000</option>
+                                <option value="3">Salón 3 - $20000</option>
+                                <option value="4">Salón 4 - $25000</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="salonNombre">Cantidad de horas</td>
+                        <td id="precioSalonPresupuesto">$0</td>
+                        <td class="fw-normal px-3">Elegir: <input type="number" class="servicio" value=""></td>
+                    </tr>
+                    <tr>
+                        <td>Decoración con globos</td>
+                        <td>$5000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Candybar</td>
+                        <td>$10000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Invitaciones digitales</td>
+                        <td>$8000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Maquillaje Artístico</td>
+                        <td>$10000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>Catering</td>
+                        <td>$20000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Torta y Mesa dulce</td>
+                        <td>$15000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Espectáculo</td>
+                        <td>$20000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Fotografía y Video</td>
+                        <td>$10000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="1"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="table-secondary">
+                        <th>Total</th>
+                        <th id="totalPresupuesto">$0</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn col bg-rosaindex btn-success mt-3" id="continuarBtn">Continuar</button>
+        </div>
+
+        <div class="col-md-5" id="datosSolicitantePresupuesto" style="display:none;">
+            <h4>Datos del solicitante</h4>
+            <form>
+                <div class="mb-2">
+                    <input type="text" class="form-control" placeholder="Nombre completo" required>
+                </div>
+                <div class="mb-2">
+                    <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                </div>
+                <div class="mb-2">
+                    <input type="tel" class="form-control" placeholder="Teléfono" required>
+                </div>
+                <button type="submit" class="btn color bg-rosaindex">Enviar solicitud</button>
+            </form>
+        </div>
     </div>
-    <img class="imagen-construccion" src="imagenes/pagina-en-construccion.png" alt="pagina en construccion" width="50%">
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
@@ -106,4 +203,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
 </body>     
-</html>  
+</html>
