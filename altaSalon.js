@@ -146,7 +146,7 @@ function mostrarSalones() {
                 `– Nombre: ${nombreSalon}\n` +
                 `– Dirección: ${direccionSalon}\n` +
                 `– Descripción: ${descripcionSalon}\n` +
-                `– Precio: ${precioSalon}` )
+                `– Precio: $${precioSalon}` )
             }
 
             localStorage.setItem('salones', JSON.stringify(salones));
