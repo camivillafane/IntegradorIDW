@@ -69,29 +69,21 @@
                 <thead class="table-primary">
                     <tr>
                         <th>Servicios</th>
-                        <th>Precio</th>
-                        <th>Seleccionar</th>
+                        <th style="width: 100px;">Precio</th>
+                        <th style="width: 100px;">Seleccionar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td id="salonNombre">Salón seleccionado</td>
                         <td id="precioSalonPresupuesto">$0</td>
-                        <td>
-                            <select class="form-select" id="salonSelect" aria-label="Seleccionar salón">
-                                <option value="0">Elegir una opción</option>
-                                <option value="1">Salón 1 - $10000</option> <!-- voy a intentar agregarlo desde otro lao -->
-                                <option value="2">Salón 2 - $15000</option>
-                                <option value="3">Salón 3 - $20000</option>
-                                <option value="4">Salón 4 - $25000</option>
-                            </select>
-                        </td>
+                        <td></td>
                     </tr>
 
                     <tr>
-                        <td id="salonNombre">Cantidad de horas</td>
-                        <td id="precioSalonPresupuesto">$0</td>
-                        <td class="fw-normal px-3">Elegir: <input type="number" class="servicio" value=""></td>
+                        <td>Cantidad de horas</td>
+                        <td id="precioSalonPresupuesto"><input type="number" id="cantidadHoras" class="form-control servicio " value="1" min="1" style="width: 100px;"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Decoración con globos</td>
@@ -101,7 +93,7 @@
                     <tr>
                         <td>Candybar</td>
                         <td>$10000</td>
-                        <td class="text-center"><input type="checkbox" class="servicio" value="2"></td>
+                        <td class="text-center"><input id="cantidadHorasPresupuesto" type="checkbox" class="servicio" value=""></td>
                     </tr>
                     <tr>
                         <td>Invitaciones digitales</td>
@@ -145,8 +137,8 @@
             <button class="btn col bg-rosaindex btn-success mt-3" id="continuarBtn">Continuar</button>
         </div>
 
-        <div class="col-md-5" id="datosSolicitantePresupuesto" style="display:none;">
-            <h4>Datos del solicitante</h4>
+        <div class="col-md-5" id="datosSolicitantePresupuesto" style="display:none;"> <!--falta esta parte para mostrar el formulario (tampoco se q datos poner je) -->
+            <h4>Datos del cliente</h4>
             <form>
                 <div class="mb-2">
                     <input type="text" class="form-control" placeholder="Nombre completo" required>
@@ -157,13 +149,12 @@
                 <div class="mb-2">
                     <input type="tel" class="form-control" placeholder="Teléfono" required>
                 </div>
-                <button type="submit" class="btn color bg-rosaindex">Enviar solicitud</button>
+                <button type="submit" class="btn color bg-rosaindex">Enviar solicitud</button> <!--que esta velga imprima en pdf el presupuesto-->
             </form>
         </div>
     </div>
 
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
     <footer class="bg-azul-600 text-light py-4">
         <div class="container-fluid">
@@ -194,13 +185,61 @@
         <div class="col-12 text-center mt-4">
         <p class="mb-1">©2025 Mundo Mágico. Todos los derechos reservados.</p>
         <small class="text-muted">Página desarrollada por IDW S.A - Grupo 33</small>
-
         </div>
     </div>
     </div>
     </footer>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const params = new URLSearchParams(window.location.search);
+    const nombreSalon = params.get('nombreSalon');
+    const precioSalon = params.get('precioSalon');
 
-</body>     
+    if (nombreSalon && precioSalon) {
+        document.getElementById('salonNombre').textContent = nombreSalon;
+        document.getElementById('precioSalonPresupuesto').textContent = `$${precioSalon}`;
+    }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const precios = [
+        5000,
+        10000,
+        8000,
+        10000,
+        20000,
+        15000,
+        20000,
+        10000 
+    ];
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"].servicio');
+    const totalPresupuesto = document.getElementById('totalPresupuesto');
+    const cantidadHorasInput = document.getElementById('cantidadHoras');
+
+    const params = new URLSearchParams(window.location.search);
+    const precioSalon = parseInt(params.get('precioSalon')) || 0;
+
+    function actualizarTotal() {
+        let total = 0;
+        checkboxes.forEach((checkbox, i) => {
+            if (checkbox !== cantidadHorasInput && checkbox.checked) {
+                total += precios[i];
+            }
+        });
+        const cantidadHoras = parseInt(cantidadHorasInput.value) || 1;
+        totalPresupuesto.textContent = `$${(precioSalon * cantidadHoras) + total}`;
+    }
+
+    checkboxes.forEach(checkb => checkb.addEventListener('change', actualizarTotal));
+    cantidadHorasInput.addEventListener('input', actualizarTotal);
+
+    actualizarTotal();
+});
+</script>
+
+</body>
 </html>
