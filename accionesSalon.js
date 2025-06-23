@@ -15,3 +15,4 @@ window.eliminarSalon = function (index) {
     localStorage.setItem('salones', JSON.stringify(salones));
     mostrarSalones();
 }
+
