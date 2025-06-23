@@ -101,7 +101,7 @@ function mostrarSalones() {
             const nombreSalon = document.getElementById('nombreSalon').value.trim();
             const direccionSalon = document.getElementById('direccionSalon').value.trim();
             const descripcionSalon = document.getElementById('descripcionSalon').value.trim();
-            const precioSalon = document.getElementById('precioSalon').value.trim();
+            const precioSalon = document.getElementById('precioSalon').value;
             const inputImagen = document.getElementById('imagenSalon');
 
             if (!nombreSalon || !direccionSalon || !descripcionSalon) {
