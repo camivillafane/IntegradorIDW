@@ -13,7 +13,9 @@ import { login } from './autenticar.js'
         const contrasenia= document.getElementById('contrasenia').value;
 
         const usuarioValidado = await login(usuario, contrasenia)
+
         if (usuarioValidado){
+            sessionStorage.setItem('token',usuarioValidado.accessToken);
             sessionStorage.setItem('usuario',usuarioValidado.username);
             alert('Ingresaste a Modo Administrador');
             window.location.href = 'altaSalon.html';
