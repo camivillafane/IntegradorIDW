@@ -14,7 +14,7 @@ import { login } from './autenticar.js'
 
         const usuarioValidado = await login(usuario, contrasenia)
         if (usuarioValidado){
-            sessionStorage.setItem('usuario',usuario);
+            sessionStorage.setItem('usuario',usuarioValidado.username);
             alert('Ingresaste a Modo Administrador');
             window.location.href = 'altaSalon.html';
         }

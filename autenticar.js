@@ -34,14 +34,9 @@ export async function login(usuarioParametro, contraseniaParametro) {
         return false;
         }
 
-    const datos = await response.json();
-    console.log('Respuesta de la API:', datos);
-
-//token
-    sessionStorage.setItem('token', datos.token);
-    sessionStorage.setItem('usuario', JSON.stringify(datos));
-
-    return true;
+    const data = await response.json();
+    console.log(data);
+    return data;
     } catch (error) {
     console.error('Error en la solicitud:', error);
     return false;
