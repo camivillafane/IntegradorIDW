@@ -18,7 +18,7 @@ import { login } from './autenticar.js'
             sessionStorage.setItem('token',usuarioValidado.accessToken);
             sessionStorage.setItem('usuario',usuarioValidado.username);
             alert('Ingresaste a Modo Administrador');
-            window.location.href = 'altaSalon.html';
+            window.location.href = 'altaMenu.html';
         }
         else{
             alert('No se pudo ingresar a Modo Administrador')
