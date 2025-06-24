@@ -25,7 +25,7 @@
                     <li class="nav-item text-start">
                         <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
                     </li>
-    
+
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             Info
@@ -62,10 +62,11 @@
 
 <div class="container mt-5 pt-5">
     <h1 class="text-center mb-3 text-white">Presupuestos</h1>
-
     <div class="row justify-content-center mb-4">
         <div class="col-md-7">
+
             <table class="table table-bordered align-middle" id="tablaPresupuesto">
+
                 <thead class="table-primary">
                     <tr>
                         <th>Servicios</th>
@@ -73,13 +74,13 @@
                         <th style="width: 100px;">Seleccionar</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr>
                         <td id="salonNombre">Salón seleccionado</td>
                         <td id="precioSalonPresupuesto">$0</td>
                         <td></td>
                     </tr>
-
                     <tr>
                         <td>Cantidad de horas</td>
                         <td id="precioSalonPresupuesto"><input type="number" id="cantidadHoras" class="form-control servicio " value="1" min="1" style="width: 100px;"></td>
@@ -126,6 +127,7 @@
                         <td class="text-center"><input type="checkbox" class="servicio" value="1"></td>
                     </tr>
                 </tbody>
+
                 <tfoot>
                     <tr class="table-secondary">
                         <th>Total</th>
@@ -134,14 +136,17 @@
                     </tr>
                 </tfoot>
             </table>
-            <button class="btn col bg-rosaindex btn-success mt-3" id="continuarBtn">Continuar</button>
-        </div>
 
-        <div class="col-md-5" id="datosSolicitantePresupuesto" style="display:none;"> <!--falta esta parte para mostrar el formulario (tampoco se q datos poner je) -->
-            <h4>Datos del cliente</h4>
+        </div>
+        <div class="col-md-5" id="columnaFormulario" style="display: block;">
+            <h3 style="color: white;">Datos del solicitante</h3>
+
             <form>
                 <div class="mb-2">
                     <input type="text" class="form-control" placeholder="Nombre completo" required>
+                </div>
+                <div class="mb-2">
+                    <input type="text" class="form-control" placeholder="DNI (sin puntos)" required>
                 </div>
                 <div class="mb-2">
                     <input type="email" class="form-control" placeholder="Correo electrónico" required>
@@ -149,11 +154,21 @@
                 <div class="mb-2">
                     <input type="tel" class="form-control" placeholder="Teléfono" required>
                 </div>
-                <button type="submit" class="btn color bg-rosaindex">Enviar solicitud</button> <!--que esta velga imprima en pdf el presupuesto-->
             </form>
+            
+            <form>
+                <div class="mb-2" style="color: white;">
+                    Nombre de cumpleañero/cumpleañera: <input type="text" class="form-control" placeholder="Nombre" required>
+                </div>
+                <div class="mb-2" style="color: white;">
+                    Fecha del evento: <input type="date" class="form-control" placeholder="Fecha del Evento" required>
+                </div>
+
+                <button type="submit" class="btn color bg-rosaindex">Enviar solicitud</button>
+            </form>
+
         </div>
     </div>
-
 </div>
 
     <footer class="bg-azul-600 text-light py-4">
@@ -191,6 +206,7 @@
     </footer>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
@@ -202,8 +218,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('precioSalonPresupuesto').textContent = `$${precioSalon}`;
     }
 });
-</script>
-<script>
 document.addEventListener('DOMContentLoaded', function() {
     const precios = [
         5000,
@@ -215,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function() {
         20000,
         10000 
     ];
-
     const checkboxes = document.querySelectorAll('input[type="checkbox"].servicio');
     const totalPresupuesto = document.getElementById('totalPresupuesto');
     const cantidadHorasInput = document.getElementById('cantidadHoras');
@@ -233,11 +246,91 @@ document.addEventListener('DOMContentLoaded', function() {
         const cantidadHoras = parseInt(cantidadHorasInput.value) || 1;
         totalPresupuesto.textContent = `$${(precioSalon * cantidadHoras) + total}`;
     }
-
     checkboxes.forEach(checkb => checkb.addEventListener('change', actualizarTotal));
     cantidadHorasInput.addEventListener('input', actualizarTotal);
 
     actualizarTotal();
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const buttonEnviar = document.querySelector('#columnaFormulario button[type="submit"]');
+    if (!buttonEnviar) return;
+
+    buttonEnviar.addEventListener('click', function(e) {
+        e.preventDefault();
+        const inputCliente = document.querySelectorAll('#columnaFormulario form:nth-of-type(1) input');
+        const clienteNombre = inputCliente[0].value.trim();
+        const clienteDni = inputCliente[1].value.trim();
+        const clienteEmail = inputCliente[2].value.trim();
+        const clienteTel = inputCliente[3].value.trim();
+
+        const inputCumple = document.querySelectorAll('#columnaFormulario form:nth-of-type(2) input');
+        const cumpleNombre = inputCumple[0].value.trim();
+        const cumpleFecha = inputCumple[1].value.trim();
+
+        const salon = document.getElementById('salonNombre').textContent;
+        const horas = document.getElementById('cantidadHoras').value;
+
+        const serviciosNombres = [
+            "Decoración con globos",
+            "Candybar",
+            "Invitaciones digitales",
+            "Maquillaje Artístico",
+            "Catering",
+            "Torta y Mesa dulce",
+            "Espectáculo",
+            "Fotografía y Video"
+        ];
+        
+        const checkboxes = document.querySelectorAll('input[type="checkbox"].servicio');
+        let serviciosElegidos = [];
+        checkboxes.forEach((cb, i) => {
+            if(cb.checked) serviciosElegidos.push(serviciosNombres[i]);
+        });
+
+        const total = document.getElementById('totalPresupuesto').textContent;
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.setFillColor(44, 62, 80);
+        doc.rect(0, 0, 210, 25, 'F');
+        doc.setDrawColor(218, 155, 185);
+        doc.setLineWidth(2);
+        doc.line(0, 26, 210, 26);
+
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(20);
+        doc.text("Mundo Mágico", 105, 15, { align: "center" });
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(16);
+        doc.text("Presupuesto Mundo Mágico", 10, 40);
+
+        doc.setFontSize(12);
+        doc.text("Datos del Cliente:", 10, 48);
+        doc.text(`Nombre: ${clienteNombre}`, 10, 56);
+        doc.text(`DNI: ${clienteDni}`, 10, 64);
+        doc.text(`Email: ${clienteEmail}`, 10, 72);
+        doc.text(`Teléfono: ${clienteTel}`, 10, 80);
+        doc.text("Datos del Cumpleañero/a:", 10, 92);
+        doc.text(`Nombre: ${cumpleNombre}`, 10, 100);
+        doc.text(`Fecha del evento: ${cumpleFecha}`, 10, 108);
+        doc.text("Salón y Horas:", 10, 120);
+        doc.text(`Salón: ${salon}`, 10, 128);
+        doc.text(`Cantidad de horas: ${horas}`, 10, 136);
+
+        doc.text("Servicios Elegidos:", 10, 148);
+        let y = 156;
+        if(serviciosElegidos.length === 0) {
+            doc.text("Ninguno", 10, y);
+            y += 8;
+        } else {
+            serviciosElegidos.forEach(servicio => {
+                doc.text(`- ${servicio}`, 10, y);
+                y += 8;
+            });
+        }
+        doc.text(`Total: ${total}`, 10, y + 8);
+        doc.save("presupuestoMundoMagico.pdf");
+    });
 });
 </script>
 
