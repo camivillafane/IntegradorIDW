@@ -27,9 +27,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+
+        document.addEventListener('DOMContentLoaded', () => {
+    if (!sessionStorage.getItem('usuario')) {
+        alert('Debes iniciar sesion');
+        window.location.href = 'iniciarsesion.html';
+        return;
+    }})
+
     const salir = document.getElementById('logout');
     if (salir) {
         salir.addEventListener('click', () => {
-        window.location.href = 'altaSalon.html';
+        window.location.href = 'altaMenu.html';
     });
     }
