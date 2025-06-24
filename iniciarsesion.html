@@ -12,7 +12,7 @@
     <title>Iniciar Sesión</title>
 </head>
 
-<body>
+<body style="background-color: #e5eef2;">
 <header class="mb-5">
     <nav class="navbar navbar-expand-sm">
         <div class="container-fluid bg-azul-600 altura-50 fixed-top">
@@ -42,7 +42,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                             <li><a class="dropdown-item" href="salones.html">Salones de Evento</a></li>
-                            <li><a class="dropdown-item" href="servicios.html">Servicio</a></li>
+                            <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
 
                         </ul>
                     </div>
@@ -61,21 +61,21 @@
     </nav>
 </header>
 
-<div class="container-fluid mt-5"></div>
-            <h4 class="ps-3">Iniciar sesión para poder acceder al Modo Administrador</h4>
-            <form id="formIniciarSesion">
+<div class="container-fluid mt-5">
+            <h4 class="ps-3 mb-4">Iniciar sesión para poder acceder al Modo Administrador</h4>
+            <form id="formIniciarSesion" class="formIniciarSesion d-flex flex-column align-items-center mt-5 m-auto" style="background-color: #f6f9fb; width: 500px; padding: 20px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
                 <div class="mb-3 ps-3">
-                    <label for="usuario" class="formUsuario"> Usuario</label>
-                    <input type="text" class="form-control" id="usuario" required autocomplete="off">
+                    <label for="usuario" class="formUsuario" > Usuario</label>
+                    <input type="text" class="form-control" id="usuario" style="width: 400px;" required autocomplete="off">
                 </div>
 
                 <div class="mb-3 ps-3">
                     <label for="contrasenia" class="formContrasenia">Contraseña</label>
-                    <input type="password" class="form-control" id="contrasenia" required autocomplete="off">
+                    <input type="password" class="form-control" id="contrasenia" style="width: 400px;" required autocomplete="off">
                 </div>
                 <div>
                     <div class="ps-3">
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                    <button type="submit" class="btn bg-rosaindex">Ingresar</button>
                     </div>
                 </div>
             </form>
