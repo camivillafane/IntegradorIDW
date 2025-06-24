@@ -88,8 +88,8 @@ function mostrarSalones() {
     const salir = document.getElementById('logout');
     if (salir) {
         salir.addEventListener('click', () => {
-        sessionStorage.clear();
-        window.location.href = 'salones.html';
+        // sessionStorage.clear();
+        window.location.href = 'altaMenu.html';
     });
     }
 
