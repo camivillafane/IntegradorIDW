@@ -119,5 +119,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         doc.text(`Total: ${total}`, 10, y + 8);
         doc.save("presupuestoMundoMagico.pdf");
+
+
+        function obtenerIDPresupuesto() {
+            const presupuestos = JSON.parse(localStorage.getItem('presupuestosMundoMagico')) || [];
+            const idMayor = presupuestos.reduce((max, presupuesto) => Math.max(max, presupuesto.id), 0);
+            return idMayor + 1;
+        }
+
+        let presupuestos = JSON.parse(localStorage.getItem('presupuestosMundoMagico')) || [];
+
+        const presupuestoCompleto = {
+            id: obtenerIDPresupuesto(),
+            fecha: new Date().toISOString(),
+            cliente: {
+                nombre: clienteNombre,
+                dni: clienteDni,
+                email: clienteEmail,
+                telefono: clienteTel
+            },
+            cumpleaniero: {
+                nombre: cumpleNombre,
+                fecha: cumpleFecha
+            },
+            salon: {
+                nombre: salon,
+                horas: horas
+            },
+            servicios: serviciosElegidos,
+            total: total.replace('$', '')
+        };
+
+        presupuestos.push(presupuestoCompleto);
+
+        localStorage.setItem('presupuestosMundoMagico', JSON.stringify(presupuestos));
     });
 });
