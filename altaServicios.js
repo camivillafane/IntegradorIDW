@@ -113,8 +113,7 @@ function mostrarServiciosCards() {
                 <img src="${servicio.imagenServicio}" class="card-img-top" alt="${servicio.nombreServicio}">
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">${servicio.nombreServicio}</h5>
-                    <p class="card-text">${servicio.descripcionServicio}</p>
-                    <p class="fw-bold fs-4 mt-auto">$${servicio.precioServicio}</p>
+                    <p class="card-text">◉ ${servicio.descripcionServicio}</p>
                 </div>
             </div>
         `;
