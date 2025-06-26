@@ -25,10 +25,32 @@ window.cambiarDisponibilidad = function (index) {
     }
 }
 
+window.cambiarDisponibilidadFijo = function (index) {
+    const salonesFijos = JSON.parse(localStorage.getItem('salonesFijos')) || [
+        { disponible: true },
+        { disponible: true },
+        { disponible: true },
+        { disponible: true }
+    ];
+    
+    if (salonesFijos[index]) {
+        salonesFijos[index].disponible = !salonesFijos[index].disponible;
+        localStorage.setItem('salonesFijos', JSON.stringify(salonesFijos));
+        mostrarSalones();
+    }
+}
+
 window.mostrarSalones = function () {
     const tablaBody = document.querySelector('#tablaSalones tbody');
     if (!tablaBody) return;
     tablaBody.innerHTML = '';
+
+    const estadosFijos = JSON.parse(localStorage.getItem('salonesFijos')) || [
+        { disponible: true },
+        { disponible: true },
+        { disponible: true },
+        { disponible: true }
+    ];
 
     const salonesFijos = [
         {
@@ -38,7 +60,7 @@ window.mostrarSalones = function () {
             descripcionSalon: 'El salón de Jumpmania ofrece un espacio perfecto para un evento de todas las edades que busquen pasar un día lleno de diversión. El salón consta de un gran espacio diseñado para todas las edades lleno de trampolines interconectados de todos los tamaños y fosas de cubos de espuma para asegurar la seguridad a la hora de saltar.',
             imagenSalon: 'imagenes/partyroom.webp',
             precioSalon: 26000,
-            disponible: true
+            disponible: estadosFijos[0]?.disponible !== false
         },
         {
             id: 2,
@@ -47,7 +69,7 @@ window.mostrarSalones = function () {
             descripcionSalon: 'El salón Fun Zone es un lugar increíble que asegura la diversión tanto de chicos como de grandes con distintos peloteros. Con una gran variedad entre camas elásticas, toboganes y fosas de pelotas con un amplio espacio para correr, saltar y gritar de emoción.',
             imagenSalon: 'imagenes/KRmoTNl-A_1200x0__1.jpg',
             precioSalon: 22000,
-            disponible: true
+            disponible: estadosFijos[1]?.disponible !== false
         },
         {
             id: 3,
@@ -56,7 +78,7 @@ window.mostrarSalones = function () {
             descripcionSalon: 'El salón de Jumpmania ofrece un espacio perfecto para un evento de todas las edades que busquen pasar un día lleno de diversión. El salón consta de un gran espacio diseñado para todas las edades lleno de trampolines interconectados de todos los tamaños y fosas de cubos de espuma para asegurar la seguridad a la hora de saltar.',
             imagenSalon: 'imagenes/Jumpmania.webp',
             precioSalon: 24000,
-            disponible: true
+            disponible: estadosFijos[2]?.disponible !== false
         },
         {
             id: 4,
@@ -65,15 +87,19 @@ window.mostrarSalones = function () {
             descripcionSalon: 'El salón Safari Salvaje es un lugar que ofrece muchas actividades divertidas apegadas a la temática. Un espacio lleno de colores vibrantes, peloteros y muchos juegos para todas las edades. Ideal para cumpleaños y celebraciones especiales.',
             imagenSalon: 'imagenes/NUESTRAS-JUNGLAS-TLALPAN.jpg',
             precioSalon: 25000,
-            disponible: true
+            disponible: estadosFijos[3]?.disponible !== false
         }
     ];
 
-    salonesFijos.forEach((salon) => {
+    salonesFijos.forEach((salon, index) => {
         const fila = document.createElement('tr');
         const estadoDisponibilidad = salon.disponible ? 
             '<span class="badge bg-success">Disponible</span>' : 
             '<span class="badge bg-danger">No Disponible</span>';
+        
+        const botonDisponibilidad = salon.disponible ? 
+            '<button class="btn btn-sm btn-outline-danger w-100 my-2" onclick="cambiarDisponibilidadFijo(' + index + ')">Marcar No Disponible</button>' :
+            '<button class="btn btn-sm btn-outline-success w-100 my-2" onclick="cambiarDisponibilidadFijo(' + index + ')">Marcar Disponible</button>';
         
         fila.innerHTML = `
             <td>${salon.id}</td>
@@ -83,10 +109,13 @@ window.mostrarSalones = function () {
             <td>$${salon.precioSalon}</td>
             <td>${salon.imagenSalon ? `<img src="${salon.imagenSalon}" alt="Imagen de ${salon.nombreSalon}" width="80">` : `<em>(sin imagen predeterminada)</em>`}</td>
             <td>
+                <div class="d-flex flex-column">
+                    ${estadoDisponibilidad}
+                    ${botonDisponibilidad}
+                </div>
             </td>`;
         tablaBody.appendChild(fila);
     });
-
 
     const salonesGuardados = JSON.parse(localStorage.getItem('salones')) || [];
     salonesGuardados.forEach((salon, index) => {
