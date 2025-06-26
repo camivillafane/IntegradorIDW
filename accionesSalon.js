@@ -83,7 +83,6 @@ window.mostrarSalones = function () {
             <td>$${salon.precioSalon}</td>
             <td>${salon.imagenSalon ? `<img src="${salon.imagenSalon}" alt="Imagen de ${salon.nombreSalon}" width="80">` : `<em>(sin imagen predeterminada)</em>`}</td>
             <td>
-                <span class="badge bg-secondary">Salón Fijo</span>
             </td>`;
         tablaBody.appendChild(fila);
     });
