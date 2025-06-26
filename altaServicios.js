@@ -11,35 +11,35 @@ const serviciosFijos = [
     nombreServicio: 'Candy Bar',
     descripcionServicio: '◉ Servicio de Candy Bar con variedad de golosinas, postres, jugos o cocteles, adaptados a cada temática y con personal a disposición.',
     imagenServicio: 'imagenes/MicrosoftTeams-image-1-810x561a.jpg',
-    precioServicio: 8000
+    precioServicio: 10000
   },
   {
     id: 3,
     nombreServicio: 'Stand de Make Up Artist & Glitter Bar',
     descripcionServicio: '◉ Servicio de maquillaje artístico personalizado para todas las edades, con materiales hipolargénicos de excelente calidad y fácil lavado, que no dañan la piel ni la ropa.',
     imagenServicio: 'imagenes/makeuup.jpg',
-    precioServicio: 6000
+    precioServicio: 10000
   },
   {
     id: 4,
     nombreServicio: 'Show & Entretenimientos',
     descripcionServicio: '◉ Servicio de entretenimiento con personal capacitado y dedicado para brindarte un evento divertido, adaptado para todas las edades.',
     imagenServicio: 'imagenes/entretenimientos.jpg',
-    precioServicio: 12000
+    precioServicio: 20000
   },
   {
     id: 5,
     nombreServicio: 'Servicio de Catering',
     descripcionServicio: '◉ Servicio adaptado a las necesidades y preferencias del agasajado y los invitados. Contamos con varias opciones saladas, dulces o mixtas.',
     imagenServicio: 'imagenes/catering salado.jpg',
-    precioServicio: 15000
+    precioServicio: 20000
   },
   {
     id: 6,
     nombreServicio: 'Torta & mesa dulce',
     descripcionServicio: '◉ Servicio de torta y mesa dulce con la temática que prefieras.',
     imagenServicio: 'imagenes/zazu-eventos-salon-3 (1).jpg',
-    precioServicio: 7000
+    precioServicio: 15000
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const serviciosFijos = [
     nombreServicio: 'Invitaciones digitales e impresas',
     descripcionServicio: '◉ Servicio premium de invitaciones en ambos formatos para que puedas elegir el que mejor se adapte a tus invitados.',
     imagenServicio: 'imagenes/tarjetita.jpg',
-    precioServicio: 3000
+    precioServicio: 8000
   }
 ];
 
@@ -114,6 +114,7 @@ function mostrarServiciosCards() {
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">${servicio.nombreServicio}</h5>
                     <p class="card-text">◉ ${servicio.descripcionServicio}</p>
+                    <h5 class="card-title" style="align-self: flex-end; font-weight: bold;">$${servicio.precioServicio}</h5>
                 </div>
             </div>
         `;

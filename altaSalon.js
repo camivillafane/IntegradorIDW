@@ -56,7 +56,7 @@ function mostrarSalones() {
         <td>${salon.descripcionSalon}</td>
         <td>$${salon.precioSalon}</td>
         <td>${salon.imagenSalon ? `<img src="${salon.imagenSalon}" alt="Imagen de ${salon.nombreSalon}" width="80">` : `<em>(sin imagen predeterminada)</em>`}</td>
-        <td><!-- No hay acciones para fijos --></td>`;
+        <td class="text-center">Reservar<input id="reservadoCheck" type="checkbox" class="servicio" value="3"></td>`;
     tablaBody.appendChild(fila);
     });
 

@@ -1,11 +1,6 @@
 //PARA LOGIN
 import { login } from './autenticar.js'
 
-    // if (sessionStorage.getItem('usuario')){
-    //     alert('Este usuario ya esta en Modo Administrador')
-    //     window.location.href = 'salonesAdmin.html';
-    // }
-
     document.getElementById('formIniciarSesion').addEventListener('submit', async function(event){
         event.preventDefault();
 
