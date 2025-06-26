@@ -110,8 +110,10 @@ window.mostrarSalones = function () {
             <td>
                 <div class="d-flex flex-column">
                     ${estadoDisponibilidad}
-                    <button class="btn btn-sm btn-warning mb-1" onclick="editarSalon(${index})">Editar</button>
-                    <button class="btn btn-sm btn-danger mb-1" onclick="eliminarSalon(${index})">Eliminar</button>
+                    <div class="d-flex">
+                        <button class="btn btn-sm btn-warning w-50 me-1 my-2" onclick="editarSalon(${index})">Editar</button>
+                        <button class="btn btn-sm btn-danger w-50 my-2" onclick="eliminarSalon(${index})">Eliminar</button>
+                    </div>
                     ${botonDisponibilidad}
                 </div>
             </td>`;
