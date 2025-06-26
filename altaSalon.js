@@ -46,6 +46,7 @@ function mostrarSalones() {
     // Esta función ahora está en accionesSalon.js
     if (typeof window.mostrarSalones === 'function') {
         window.mostrarSalones();
+
     }
 }
 
