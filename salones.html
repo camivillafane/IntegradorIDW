@@ -75,7 +75,7 @@
                             <p class="card-text">◉ Concordia, Entre Rios - Avenida del Sol 456</p>
                             <p class="card-text">El salón de Jumpmania ofrece un espacio perfecto para un evento de todas las edades que busquen pasar un día lleno de diversión. El salón consta de un gran espacio diseñado para todas las edades lleno de trampolines interconectados de todos los tamaños y fosas de cubos de espuma para asegurar la seguridad a la hora de saltar.</p>
                             <p class="fw-bold fs-4 mt-auto">$26000</p>
-                            <p class="card-text text-success">Disponible</p> //CAMI ACA PUSE
+                            <p class="card-text text-success">Disponible</p>
                             <a href="presupuestos.html?nombreSalon=Salón%20Temático%20Nº1%20Aventura%20Pirata&precioSalon=26000" class="btn btn-primary btn-lg btn-block">Reservar</a>
                         </div>
                     </div>
@@ -164,28 +164,32 @@ document.addEventListener('DOMContentLoaded', function() {
             direccionSalon: 'Concordia, Entre Rios - Avenida del Sol 456',
             descripcionSalon: 'El salón de Jumpmania ofrece un espacio perfecto para un evento de todas las edades que busquen pasar un día lleno de diversión. El salón consta de un gran espacio diseñado para todas las edades lleno de trampolines interconectados de todos los tamaños y fosas de cubos de espuma para asegurar la seguridad a la hora de saltar.',
             imagenSalon: 'imagenes/partyroom.webp',
-            precioSalon: 26000
+            precioSalon: 26000,
+            disponible: true
         },
         {
             nombreSalon: 'Salón Temático Nº2 "Fun Zone"',
             direccionSalon: 'Concordia, Entre Rios - Calle Litoral 101',
             descripcionSalon: 'El salón Fun Zone es un lugar increíble que asegura la diversión tanto de chicos como de grandes con distintos peloteros. Con una gran variedad entre camas elásticas, toboganes y fosas de pelotas con un amplio espacio para correr, saltar y gritar de emoción.',
             imagenSalon: 'imagenes/KRmoTNl-A_1200x0__1.jpg',
-            precioSalon: 22000
+            precioSalon: 22000,
+            disponible: true
         },
         {
             nombreSalon: 'Salón Temático Nº3 "Jumpmania"',
             direccionSalon: 'Concordia, Entre Rios - 9 de julio 154',
             descripcionSalon: 'El salón de Jumpmania ofrece un espacio perfecto para un evento de todas las edades que busquen pasar un día lleno de diversión. El salón consta de un gran espacio diseñado para todas las edades lleno de trampolines interconectados de todos los tamaños y fosas de cubos de espuma para asegurar la seguridad a la hora de saltar.',
             imagenSalon: 'imagenes/Jumpmania.webp',
-            precioSalon: 24000
+            precioSalon: 24000,
+            disponible: true
         },
         {
             nombreSalon: 'Salón Temático Nº4 "Safari salvaje"',
             direccionSalon: 'Concordia, Entre Rios - Caminito 131',
             descripcionSalon: 'El salón Safari Salvaje es un lugar que ofrece muchas actividades divertidas apegadas a la temática. Un espacio lleno de colores vibrantes, peloteros y muchos juegos para todas las edades. Ideal para cumpleaños y celebraciones especiales.',
             imagenSalon: 'imagenes/NUESTRAS-JUNGLAS-TLALPAN.jpg',
-            precioSalon: 25000
+            precioSalon: 25000,
+            disponible: true
         }
     ];
 
@@ -193,10 +197,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const contenedorSalones = document.getElementById('catalogoSalones');
     contenedorSalones.innerHTML = '';
 
-    salonesFijos.forEach(salon => {
-        const col = document.createElement('div');
-        col.className = 'col-md-3 col-sm-6';
-        col.innerHTML = `
+    function crearTarjetaSalon(salon) {
+        const estaDisponible = salon.disponible !== false; // Por defecto disponible
+        const estadoClase = estaDisponible ? 'text-success' : 'text-danger';
+        const estadoTexto = estaDisponible ? 'Disponible' : 'No Disponible';
+        const botonClase = estaDisponible ? 'btn-primary' : 'btn-secondary';
+        const botonTexto = estaDisponible ? 'Reservar' : 'No Disponible';
+        const botonDisabled = estaDisponible ? '' : 'disabled';
+        const href = estaDisponible ? `presupuestos.html?nombreSalon=${encodeURIComponent(salon.nombreSalon)}&precioSalon=${salon.precioSalon}` : '#';
+
+        return `
             <div class="card h-100 py-2 px-2">
                 <img src="${salon.imagenSalon}" class="card-img-top" alt="${salon.nombreSalon}">
                 <div class="card-body d-flex flex-column">
@@ -204,30 +214,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="card-text">◉ ${salon.direccionSalon}</p>
                     <p class="card-text">${salon.descripcionSalon}</p>
                     <p class="fw-bold fs-4 mt-auto">$${salon.precioSalon}</p>
-                    <p class="card-text text-success">Disponible</p> 
-                    <a href="presupuestos.html?nombreSalon=${encodeURIComponent(salon.nombreSalon)}&precioSalon=${salon.precioSalon}" class="btn btn-primary btn-lg btn-block">Reservar</a>
+                    <p class="card-text ${estadoClase}">${estadoTexto}</p>
+                    <a href="${href}" class="btn ${botonClase} btn-lg btn-block" ${botonDisabled}>${botonTexto}</a>
                 </div>
             </div>
         `;
+    }
+
+    salonesFijos.forEach(salon => {
+        const col = document.createElement('div');
+        col.className = 'col-md-3 col-sm-6';
+        col.innerHTML = crearTarjetaSalon(salon);
         contenedorSalones.appendChild(col);
     });
 
     salones.forEach(salon => {
         const col = document.createElement('div');
         col.className = 'col-md-3 col-sm-6';
-        col.innerHTML = `
-            <div class="card h-100 py-2 px-2">
-                <img src="${salon.imagenSalon}" class="card-img-top" alt="${salon.nombreSalon}">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">${salon.nombreSalon}</h5>
-                    <p class="card-text">◉ ${salon.direccionSalon}</p>
-                    <p class="card-text">${salon.descripcionSalon}</p>
-                    <p class="fw-bold fs-4 mt-auto">$${salon.precioSalon}</p>
-                    <p class="card-text text-success">Disponible</p>
-                    <a href="presupuestos.html?nombreSalon=${encodeURIComponent(salon.nombreSalon)}&precioSalon=${salon.precioSalon}" class="btn btn-primary btn-lg btn-block">Reservar</a>
-                </div>
-            </div>
-        `;
+        col.innerHTML = crearTarjetaSalon(salon);
         contenedorSalones.appendChild(col);
     });
 });

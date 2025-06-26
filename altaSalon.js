@@ -43,42 +43,13 @@ function obtenerID() {
 }
 
 function mostrarSalones() {
-    const tablaBody = document.querySelector('#tablaSalones tbody');
-    if (!tablaBody) return;
-    tablaBody.innerHTML = '';
-
-    salonesFijos.forEach((salon) => {
-    const fila = document.createElement('tr');
-    fila.innerHTML = `
-        <td>${salon.id}</td>
-        <td>${salon.nombreSalon}</td>
-        <td>${salon.direccionSalon}</td>
-        <td>${salon.descripcionSalon}</td>
-        <td>$${salon.precioSalon}</td>
-        <td>${salon.imagenSalon ? `<img src="${salon.imagenSalon}" alt="Imagen de ${salon.nombreSalon}" width="80">` : `<em>(sin imagen predeterminada)</em>`}</td>
-        <td><!-- No hay acciones para fijos --></td>`;
-    tablaBody.appendChild(fila);
-    });
-
-    const salonesGuardados = JSON.parse(localStorage.getItem('salones')) || [];
-    salonesGuardados.forEach((salon, index) => {
-    const fila = document.createElement('tr');
-    fila.innerHTML = `
-      <td>${salon.id}</td>
-      <td>${salon.nombreSalon}</td>
-      <td>${salon.direccionSalon}</td>
-      <td>${salon.descripcionSalon}</td>
-      <td>$${salon.precioSalon}</td>
-      <td>${salon.imagenSalon ? `<img src="${salon.imagenSalon}" alt="Imagen de ${salon.nombreSalon}" width="80">` : `<em>(sin imagen)</em>`}</td>
-      <td>
-        <button class="btn btn-sm btn-warning me-2" onclick="editarSalon(${index})">Editar</button>
-        <button class="btn btn-sm btn-danger" onclick="eliminarSalon(${index})">Eliminar</button>
-      </td>`;
-    tablaBody.appendChild(fila);
-    });
+    // Esta función ahora está en accionesSalon.js
+    if (typeof window.mostrarSalones === 'function') {
+        window.mostrarSalones();
     }
+}
 
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     if (!sessionStorage.getItem('usuario')) {
         alert('Debes iniciar sesion');
         window.location.href = 'iniciarsesion.html';
@@ -135,7 +106,8 @@ function mostrarSalones() {
                     direccionSalon,
                     descripcionSalon,
                     precioSalon,
-                    imagenSalon: imagenBase64
+                    imagenSalon: imagenBase64,
+                    disponible: true // Por defecto disponible
             };
             
             salones.push(nuevoSalon);
@@ -156,5 +128,5 @@ function mostrarSalones() {
             reader.readAsDataURL(archivo);
         });
     }
-mostrarSalones();
+    mostrarSalones();
 });
