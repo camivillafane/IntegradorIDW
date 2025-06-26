@@ -1,4 +1,3 @@
-//PARA LOGIN
 import { login } from './autenticar.js'
 
     document.getElementById('formIniciarSesion').addEventListener('submit', async function(event){
