@@ -11,5 +11,15 @@ Villafañe, Camila
 
 Credenciales Inicio Sesion:
 
-usuario: grupo33
-contraseña: 1234
+https://dummyjson.com/users
+
+Ejemplo:
+
+Usuario: emilys
+Contraseña: emilyspass
+
+Usuario: michaelw
+Contraseña: michaelwpass
+
+Video:
+https://drive.google.com/drive/folders/1k-uDv5Kpij4kjb46B_VyGPGKwZpI1JPD?usp=sharing

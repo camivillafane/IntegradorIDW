@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     contenedorSalones.innerHTML = '';
 
     function crearTarjetaSalon(salon) {
-        const estaDisponible = salon.disponible !== false; // Por defecto disponible
+        const estaDisponible = salon.disponible !== false; 
         const estadoClase = estaDisponible ? 'text-success' : 'text-danger';
         const estadoTexto = estaDisponible ? 'Disponible' : 'No Disponible';
         const botonClase = estaDisponible ? 'btn-primary' : 'btn-secondary';

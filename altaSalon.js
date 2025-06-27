@@ -43,7 +43,6 @@ function obtenerID() {
 }
 
 function mostrarSalones() {
-    // Esta función ahora está en accionesSalon.js
     if (typeof window.mostrarSalones === 'function') {
         window.mostrarSalones();
 
@@ -60,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const salir = document.getElementById('logout');
     if (salir) {
         salir.addEventListener('click', () => {
-        // sessionStorage.clear();
         window.location.href = 'altaMenu.html';
     });
     }
@@ -108,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     descripcionSalon,
                     precioSalon,
                     imagenSalon: imagenBase64,
-                    disponible: true // Por defecto disponible
+                    disponible: true
             };
             
             salones.push(nuevoSalon);
