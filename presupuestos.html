@@ -25,7 +25,7 @@
                     <li class="nav-item text-start">
                         <a class="nav-link active text-white" aria-current="page" href="index.html">Inicio</a>
                     </li>
-    
+
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             Info
@@ -42,9 +42,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                             <li><a class="dropdown-item" href="salones.html">Salones de Evento</a></li>
-                            <li><a class="dropdown-item" href="servicios.html">Servicio</a></li>
-                            <li><a class="dropdown-item" href="presupuestos-cami.html">Presupuesto</a></li>
-                            <li><a class="dropdown-item" href="imagenes.html">Imágenes</a></li>
+                            <li><a class="dropdown-item" href="servicios.html">Servicios</a></li>
                         </ul>
                     </div>
 
@@ -54,7 +52,6 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="dropdownMenuButton3">
                             <li><a class="dropdown-item" href="iniciarsesion.html">Iniciar Sesión</a></li>
-                            <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>
                         </ul>
                     </div>
                 </ul>
@@ -63,13 +60,116 @@
     </nav>
 </header>
 
-<div class="container-fluid text-center">
-    <div class="titulo-imagen-construccion">
-        <h1>Página en construcción</h1>
+<div class="container mt-5 pt-5">
+    <h1 class="text-center mb-3 text-white">Presupuestos</h1>
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-7">
+
+            <table class="table table-bordered align-middle" id="tablaPresupuesto">
+
+                <thead class="table-primary">
+                    <tr>
+                        <th>Servicios</th>
+                        <th style="width: 100px;">Precio</th>
+                        <th style="width: 100px;">Seleccionar</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td id="salonNombre">Salón seleccionado</td>
+                        <td id="precioSalonPresupuesto">$0</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Cantidad de horas</td>
+                        <td id="precioSalonPresupuesto"><input type="number" id="cantidadHoras" class="form-control servicio " value="1" min="1" style="width: 100px;"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Decoración con globos</td>
+                        <td>$5000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Candybar</td>
+                        <td>$10000</td>
+                        <td class="text-center"><input id="cantidadHorasPresupuesto" type="checkbox" class="servicio" value=""></td>
+                    </tr>
+                    <tr>
+                        <td>Invitaciones digitales</td>
+                        <td>$8000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="1"></td>
+                    </tr>
+                    <tr>
+                        <td>Maquillaje Artístico</td>
+                        <td>$10000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="4"></td>
+                    </tr>
+                    <tr>
+                        <td>Catering</td>
+                        <td>$20000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="2"></td>
+                    </tr>
+                    <tr>
+                        <td>Torta y Mesa dulce</td>
+                        <td>$15000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Espectáculo</td>
+                        <td>$20000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="3"></td>
+                    </tr>
+                    <tr>
+                        <td>Fotografía y Video</td>
+                        <td>$10000</td>
+                        <td class="text-center"><input type="checkbox" class="servicio" value="1"></td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr class="table-secondary">
+                        <th>Total</th>
+                        <th id="totalPresupuesto">$0</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+        <div class="col-md-5" id="columnaFormulario" style="display: block;">
+            <h3 style="color: white;">Datos del solicitante</h3>
+
+            <form>
+                <div class="mb-2">
+                    <input type="text" class="form-control" placeholder="Nombre completo" required>
+                </div>
+                <div class="mb-2">
+                    <input type="text" class="form-control" placeholder="DNI (sin puntos)" required>
+                </div>
+                <div class="mb-2">
+                    <input type="email" class="form-control" placeholder="Correo electrónico" required>
+                </div>
+                <div class="mb-2">
+                    <input type="tel" class="form-control" placeholder="Teléfono" required>
+                </div>
+            </form>
+            
+            <form>
+                <div class="mb-2" style="color: white;">
+                    Nombre del cumpleañero/a: <input type="text" class="form-control" placeholder="Nombre" required>
+                </div>
+                <div class="mb-2" style="color: white;">
+                    Fecha del evento: <input type="date" class="form-control" placeholder="Fecha del Evento" required>
+                </div>
+
+                <button type="submit" class="btn color bg-rosaindex">Enviar solicitud</button>
+            </form>
+
+        </div>
     </div>
-    <img class="imagen-construccion" src="imagenes/pagina-en-construccion.png" alt="pagina en construccion" width="50%">
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
     <footer class="bg-azul-600 text-light py-4">
         <div class="container-fluid">
@@ -100,13 +200,13 @@
         <div class="col-12 text-center mt-4">
         <p class="mb-1">©2025 Mundo Mágico. Todos los derechos reservados.</p>
         <small class="text-muted">Página desarrollada por IDW S.A - Grupo 33</small>
-
         </div>
     </div>
     </div>
     </footer>
     
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-
-</body>     
-</html>  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="presupuestos.js"></script>
+</body>
+</html>
